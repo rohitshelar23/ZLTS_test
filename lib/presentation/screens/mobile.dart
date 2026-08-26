@@ -3,19 +3,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../cubit/complaint_cubit.dart';
 import '../cubit/complaint_state.dart';
 
-class MobileScreen extends StatefulWidget {
+class MobileScreen extends StatelessWidget {
   const MobileScreen({super.key});
 
-  @override
-  State<MobileScreen> createState() => _MobileScreenState();
-}
-
-class _MobileScreenState extends State<MobileScreen> {
-  @override
-  void initState() {
-    super.initState();
-    context.read<ComplaintCubit>().fetchComplaints();
-  }
 
   @override
   Widget build(BuildContext context){
