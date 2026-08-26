@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../cubit/complaint_cubit.dart';
 import '../cubit/complaint_state.dart';
+import '../widgets/complaint_card.dart';
 
 class WebScreen extends StatelessWidget {
   const WebScreen({super.key});
@@ -30,38 +31,12 @@ class WebScreen extends StatelessWidget {
               maxCrossAxisExtent: 400,
               crossAxisSpacing: 16,
               mainAxisSpacing: 16,
-              childAspectRatio: 1.5, ),
+              mainAxisExtent: 250, ),
               itemCount: state.complaints.length,
               itemBuilder: (context, index) {
                 final complaint = state.complaints[index];
 
-                return Card(
-                  child: Padding(
-                    padding: const EdgeInsets.all(20),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          complaint.complaintType,
-                          style: const TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-
-                        const SizedBox(height: 8),
-                        Text(complaint.description),
-                        const Spacer(),
-                        Text(
-                          'Status: ${complaint.status}'),
-                        Text('Agency: ${complaint.agency}'),
-                        Text('Borough: ${complaint.borough}'),
-                       const SizedBox(height: 8),
-                       Text(complaint.createdDate),
-                      ],
-                    ),
-                  ),
-                );
+                return ComplaintCard(complaint: complaint);
               },
             );
           }
