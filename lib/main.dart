@@ -1,7 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'presentation/cubit/complaint_cubit.dart';
+import 'presentation/screens/mobile.dart';
+import 'repositories/complaint_repository.dart';
+import 'services/api_service.dart';
 
 void main() {
-  runApp(const MyApp());
+final apiService = ApiService();
+final complaintRepository = ComplaintRepository(apiService);
+
+  runApp(
+  BlocProvider(
+          create: (context) => ComplaintCubit(complaintRepository),
+          child: const MyApp(),
+        ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -18,20 +31,7 @@ class MyApp extends StatelessWidget {
         ),
         useMaterial3: true,
       ),
-      home: const HomeScreen(),
-    );
-  }
-}
-
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Center(
-        child: Text('Complaints & Opinions'),
-      ),
+      home: const MobileScreen(),
     );
   }
 }
