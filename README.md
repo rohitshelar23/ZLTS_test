@@ -1,36 +1,33 @@
-# zlts_test
+# API Integration Practice
 
-A Flutter assignment project built using the NYC 311 public API.
+A Flutter practice project focused on integrating a public REST API and displaying the data in a simple mobile and web interface.
 
-The idea for this project came from looking at ZLTS product, PureSect. While exploring the product, I noticed the complaint-related snapshot on the website, which gave me the idea to build a simple complaint listing app around a similar concept.
+The project uses the NYC 311 Open Data API to fetch complaint data.
 
-My main focus for this assignment was to understand and implement the Flutter architecture discussed during the call, including the service layer, repository layer, presentation layer, state management, and separate layouts for mobile and web.
+## What I Practiced
 
-## Features
-
-- Fetch complaint data from a public API
-- Separate layouts for mobile and web
+- REST API integration
+- HTTP requests
+- Service and repository layers
 - Cubit for state management
-- Service layer
-- Repository layer
 - Loading and error states
-- Reusable complaint card
-- Responsive web layout
+- Separate layouts for mobile and web
+- Reusable Flutter widgets
 
 ## Packages Used
 
 - flutter_bloc - Used Cubit for managing the application state
-- http` - Used to make API requests
+- http - Used to make API requests
 
 ## API Used
 
 NYC 311 Open Data API
 
-I used the NYC 311 public API because it provides a real list of complaints with useful information such as complaint type, description, status, agency, borough, and date.
+For this project, I fetch 20 complaints from the API and display them in the app.
 
-I chose this API after looking at PureSect and seeing the complaint-related part of the product. It gave me the idea to build this assignment around a complaint listing concept instead of using a random API.
+The basic data flow is:
 
-The API data is fetched through the service layer, passed to the repository, and then handled by the Cubit before being displayed in the UI.
+API → Service → Repository → Cubit → UI
 
 ## Screenshots
 
@@ -42,12 +39,6 @@ The API data is fetched through the service layer, passed to the repository, and
 
 ![Web Screenshot](screenshots/web.png)
 
-## Note
+## UI
 
-I kept the UI simple and focused more on the functionality and structure of the application because of the limited assignment time.
-
-The main focus was on understanding and implementing the API integration, service and repository layers, Cubit state management, and separate layouts for mobile and web.
-
-## Possible Improvements
-
-If I had more time, I would improve the UI and add features such as better filtering, search, and a more detailed complaint view.
+The UI is kept simple because the main focus of this project was learning API integration and understanding how the different layers work together.
